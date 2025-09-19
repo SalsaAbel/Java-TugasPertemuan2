@@ -1,0 +1,233 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Contoh Fungsi Geometri </title>
+  <style>
+    body { font-family: system-ui, -apple-system, Roboto, "Segoe UI", Arial; padding: 20px; max-width: 820px; margin: auto; }
+    h1 { margin-bottom: 6px; }
+    .card { border: 1px solid #ddd; padding: 12px; border-radius: 8px; margin-bottom: 12px; }
+    label { display:block; margin:6px 0 2px; }
+    input[type="number"] { width: 140px; padding:6px; }
+    button { margin-top:8px; padding:8px 12px; border-radius:6px; cursor:pointer; }
+    pre { background:#f7f7f7; padding:10px; border-radius:6px; overflow:auto; }
+  </style>
+</head>
+<body>
+  <h1>Fungsi Geometri </h1>
+  <p>Masukkan nilai (nilai parameter bebas: sisi, panjang, lebar, tinggi, dsb.) lalu klik tombol untuk melihat hasil. Semua fungsi disertai komentar penjelasan.</p>
+
+  <div class="card">
+    <h3>Persegi (sisi)</h3>
+    <label for="s_sisi">Sisi (s)</label>
+    <input id="s_sisi" type="number" value="5" step="any" />
+    <div>
+      <button id="btnSquare">Hitung Luas & Keliling Persegi</button>
+    </div>
+    <pre id="outSquare">Hasil akan muncul di sini</pre>
+  </div>
+
+  <div class="card">
+    <h3>Persegi panjang (panjang, lebar)</h3>
+    <label for="r_panjang">Panjang (p)</label>
+    <input id="r_panjang" type="number" value="8" step="any" />
+    <label for="r_lebar">Lebar (l)</label>
+    <input id="r_lebar" type="number" value="3" step="any" />
+    <div>
+      <button id="btnRect">Hitung Luas & Keliling Persegi Panjang</button>
+    </div>
+    <pre id="outRect">Hasil akan muncul di sini</pre>
+  </div>
+
+  <div class="card">
+    <h3>Segitiga (alas, tinggi)</h3>
+    <label for="t_alas">Alas (a)</label>
+    <input id="t_alas" type="number" value="6" step="any" />
+    <label for="t_tinggi">Tinggi (t)</label>
+    <input id="t_tinggi" type="number" value="4" step="any" />
+    <div>
+      <button id="btnTri">Hitung Luas Segitiga</button>
+    </div>
+    <pre id="outTri">Hasil akan muncul di sini</pre>
+  </div>
+
+  <div class="card">
+    <h3>Balok (panjang, lebar, tinggi)</h3>
+    <label for="b_panjang">Panjang (p)</label>
+    <input id="b_panjang" type="number" value="6" step="any" />
+    <label for="b_lebar">Lebar (l)</label>
+    <input id="b_lebar" type="number" value="4" step="any" />
+    <label for="b_tinggi">Tinggi (t)</label>
+    <input id="b_tinggi" type="number" value="3" step="any" />
+    <div>
+      <button id="btnCuboid">Hitung Volume & Luas Permukaan Balok</button>
+    </div>
+    <pre id="outCuboid">Hasil akan muncul di sini</pre>
+  </div>
+
+  <div class="card">
+    <h3>Kubus (sisi)</h3>
+    <label for="k_sisi">Sisi (s)</label>
+    <input id="k_sisi" type="number" value="4" step="any" />
+    <div>
+      <button id="btnCube">Hitung Volume & Luas Permukaan Kubus</button>
+    </div>
+    <pre id="outCube">Hasil akan muncul di sini</pre>
+  </div>
+
+  <script>
+    /* === Fungsi-fungsi Geometri ===
+       Semua fungsi menggunakan parameter yang bisa diisi bebas oleh pengguna.
+       Komentar di bawah menjelaskan tiap fungsi (apa inputnya dan apa outputnya).
+    */
+
+    /**
+     * Menghitung luas persegi
+     * @param {number} s - panjang sisi persegi
+     * @returns {number} luas (s * s)
+     */
+    function luasPersegi(s) {
+      return s * s;
+    }
+
+    /**
+     * Menghitung keliling persegi
+     * @param {number} s - panjang sisi persegi
+     * @returns {number} keliling (4 * s)
+     */
+    function kelilingPersegi(s) {
+      return 4 * s;
+    }
+
+    /**
+     * Menghitung luas persegi panjang
+     * @param {number} p - panjang
+     * @param {number} l - lebar
+     * @returns {number} luas (p * l)
+     */
+    function luasPersegiPanjang(p, l) {
+      return p * l;
+    }
+
+    /**
+     * Menghitung keliling persegi panjang
+     * @param {number} p - panjang
+     * @param {number} l - lebar
+     * @returns {number} keliling (2 * (p + l))
+     */
+    function kelilingPersegiPanjang(p, l) {
+      return 2 * (p + l);
+    }
+
+    /**
+     * Menghitung luas segitiga
+     * @param {number} a - alas segitiga
+     * @param {number} t - tinggi segitiga
+     * @returns {number} luas (0.5 * a * t)
+     */
+    function luasSegitiga(a, t) {
+      return 0.5 * a * t;
+    }
+
+    /**
+     * Menghitung volume balok (kotak)
+     * @param {number} p - panjang
+     * @param {number} l - lebar
+     * @param {number} t - tinggi
+     * @returns {number} volume (p * l * t)
+     */
+    function volumeBalok(p, l, t) {
+      return p * l * t;
+    }
+
+    /**
+     * Menghitung luas permukaan balok
+     * @param {number} p - panjang
+     * @param {number} l - lebar
+     * @param {number} t - tinggi
+     * @returns {number} luas permukaan (2*(pl + pt + lt))
+     */
+    function luasPermukaanBalok(p, l, t) {
+      return 2 * (p * l + p * t + l * t);
+    }
+
+    /**
+     * Menghitung volume kubus
+     * @param {number} s - sisi kubus
+     * @returns {number} volume (s^3)
+     */
+    function volumeKubus(s) {
+      return Math.pow(s, 3);
+    }
+
+    /**
+     * Menghitung luas permukaan kubus
+     * @param {number} s - sisi kubus
+     * @returns {number} luas permukaan (6 * s^2)
+     */
+    function luasPermukaanKubus(s) {
+      return 6 * s * s;
+    }
+
+    /* === Helper: format hasil agar lebih rapi === */
+    function fmt(x) {
+      // Bila bukan angka, tampilkan pesan
+      if (isNaN(x)) return 'NaN (input tidak valid)';
+      // Jika angka, tampilkan dengan maksimal 6 desimal (hilangkan trailing zeros)
+      return Number.parseFloat(x.toFixed(6)).toString();
+    }
+
+    /* === Event listeners untuk tombol-tombol UI === */
+    document.getElementById('btnSquare').addEventListener('click', function () {
+      const s = parseFloat(document.getElementById('s_sisi').value);
+      const luas = luasPersegi(s);
+      const keliling = kelilingPersegi(s);
+      document.getElementById('outSquare').textContent =
+        `Sisi (s) = ${s}\nLuas = ${fmt(luas)}\nKeliling = ${fmt(keliling)}`;
+    });
+
+    document.getElementById('btnRect').addEventListener('click', function () {
+      const p = parseFloat(document.getElementById('r_panjang').value);
+      const l = parseFloat(document.getElementById('r_lebar').value);
+      const luas = luasPersegiPanjang(p, l);
+      const keliling = kelilingPersegiPanjang(p, l);
+      document.getElementById('outRect').textContent =
+        `Panjang (p) = ${p}, Lebar (l) = ${l}\nLuas = ${fmt(luas)}\nKeliling = ${fmt(keliling)}`;
+    });
+
+    document.getElementById('btnTri').addEventListener('click', function () {
+      const a = parseFloat(document.getElementById('t_alas').value);
+      const t = parseFloat(document.getElementById('t_tinggi').value);
+      const luas = luasSegitiga(a, t);
+      document.getElementById('outTri').textContent =
+        `Alas (a) = ${a}, Tinggi (t) = ${t}\nLuas Segitiga = ${fmt(luas)}`;
+    });
+
+    document.getElementById('btnCuboid').addEventListener('click', function () {
+      const p = parseFloat(document.getElementById('b_panjang').value);
+      const l = parseFloat(document.getElementById('b_lebar').value);
+      const t = parseFloat(document.getElementById('b_tinggi').value);
+      const vol = volumeBalok(p, l, t);
+      const luasPerm = luasPermukaanBalok(p, l, t);
+      document.getElementById('outCuboid').textContent =
+        `Panjang (p) = ${p}, Lebar (l) = ${l}, Tinggi (t) = ${t}\nVolume Balok = ${fmt(vol)}\nLuas Permukaan = ${fmt(luasPerm)}`;
+    });
+
+    document.getElementById('btnCube').addEventListener('click', function () {
+      const s = parseFloat(document.getElementById('k_sisi').value);
+      const vol = volumeKubus(s);
+      const luasPerm = luasPermukaanKubus(s);
+      document.getElementById('outCube').textContent =
+        `Sisi (s) = ${s}\nVolume Kubus = ${fmt(vol)}\nLuas Permukaan = ${fmt(luasPerm)}`;
+    });
+
+    /* === Contoh pemanggilan fungsi langsung di console (opsional) ===
+       Kamu bisa membuka DevTools (F12) dan mencoba:
+         luasPersegi(7), kelilingPersegi(7), volumeBalok(2,3,4), dsb.
+    */
+    console.log('Contoh: luasPersegi(7) =', luasPersegi(7));
+    console.log('Contoh: volumeBalok(2,3,4) =', volumeBalok(2,3,4));
+  </script>
+</body>
+</html>
